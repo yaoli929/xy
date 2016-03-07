@@ -1,7 +1,6 @@
 <?php
 
 // comment out the following two lines when deployed to production
-//ssddsdsadsasdssd
 class indexConfig{
     function indexRun(){
         require(__DIR__ . '/../vendor/autoload.php');
