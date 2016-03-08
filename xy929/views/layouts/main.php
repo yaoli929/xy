@@ -18,7 +18,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title>乖乖宝宝-<?= $this->title ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -27,7 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => '乖乖宝宝',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,16 +36,16 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/index/index']],
-            ['label' => 'About', 'url' => ['/index/about']],
-            ['label' => 'Contact', 'url' => ['/index/contact']],
+            ['label' => '首页', 'url' => ['/index/index']],
+            ['label' => '关于我们', 'url' => ['/index/about']],
+            ['label' => '联系我们', 'url' => ['/index/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/index/login']]
+                ['label' => '登陆', 'url' => ['/index/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/index/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    '退出 (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link']
                 )
                 . Html::endForm()
@@ -58,7 +58,7 @@ AppAsset::register($this);
 
     <div class="container">
         <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : "首页",
         ]) ?>
         <?= $content ?>
     </div>
@@ -66,9 +66,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; 乖乖宝宝 <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right">豫ICP备16005145号-1</p>
     </div>
 </footer>
 
