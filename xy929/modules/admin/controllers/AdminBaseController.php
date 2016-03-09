@@ -15,7 +15,7 @@ use yii\web\Controller;
 class AdminBaseController extends Controller
 {
 
-//    public $layout = 'dashboard';
+    public $layout = 'dashboard';
     //访问权限控制
     public function behaviors()
     {

@@ -42,6 +42,6 @@ class IndexController extends AdminBaseController
     {
         Yii::$app->admin->logout();
 
-        return $this->redirect(["admin/login"]);
+        return $this->redirect(["/admin/index/login"]);
     }
 }
