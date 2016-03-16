@@ -19,6 +19,9 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\admin',
         ],
+        'wechat' => [
+            'class' => 'app\modules\wechat\wechat',
+        ],
     ],
     'components' => [
         'request' => [

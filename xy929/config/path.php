@@ -9,6 +9,8 @@
 return [
     'admin'=>'admin/index',
     'admin/login'=>'admin/index/login',
+    'wechat'=>'wechat/index',
+
 //    '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 //    'admin/<controller:\w+>/<action:\w+>'=>'<controller>/<action>'
 ];
