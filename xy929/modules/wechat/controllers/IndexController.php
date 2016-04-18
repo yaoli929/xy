@@ -7,32 +7,27 @@
  */
 namespace app\modules\wechat\controllers;
 
+use app\modules\wechat\services\Wechat_Service;
 use Yii;
 use yii\web\Controller;
+
 
 // 微信模块总控制器
 class IndexController extends Controller
 {
-
     public function actionIndex()
     {
-        define("TOKEN","yaoli929");
-        $signature = $_GET["signature"];
-        $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
+        $wechatObj = new Wechat_Service();
+        $wechatObj->valid();
+//        $wechatObj->responseMsg();
 
-        $token = TOKEN;
-        $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
 
-        if( $tmpStr == $signature ){
-            //验证成功
-            echo $_GET['echostr'];
-        }else{
-            return false;
-        }
+//        if (isset($_GET['echostr'])) {
+//            $wechatObj->valid();
+//        }else{
+//            echo $wechatObj->responseMsg();
+//            exit;
+//        }
+
     }
-
 }

@@ -15,7 +15,7 @@ if (in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
 
 }else{
     //线上环境
-    defined('YII_DEBUG') or define('YII_DEBUG', false);
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'prod');
 }
 $obj=new indexConfig;
