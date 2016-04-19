@@ -79,15 +79,16 @@ class Wechat_Service{
 							<Content><![CDATA[%s]]></Content>
 							<FuncFlag>0</FuncFlag>
 							</xml>";
-            if(!empty( $keyword ))
+            if(!empty($keyword))
             {
                 $msgType = "text";
-                $contentStr = "Welcome to wechat world!";
+                $contentStr = "你是不是傻啊，哈哈哈啊哈哈";
                 $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
                 echo $resultStr;
             }else{
-                echo "Input something...";
+                echo "玛德智障";
             }
+            exit;
 
         }else {
             echo "";

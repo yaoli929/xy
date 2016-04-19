@@ -5,9 +5,9 @@
  * Date: 16-2-29
  * Time: 下午5:13
  */
-namespace app\modules\wechat\controllers;
+namespace app\modules\api\controllers;
 
-use app\modules\wechat\services\Wechat_Service;
+use app\modules\api\services\Api_Service;
 use Yii;
 use yii\web\Controller;
 
@@ -25,18 +25,13 @@ class IndexController extends Controller
     }
     public function actionIndex()
     {
-        $wechatObj = new Wechat_Service();
-//        $wechatObj->valid();
-        $wechatObj->responseMsg();
+        echo "api test";
         exit;
-
-
-//        if (isset($_GET['echostr'])) {
-//            $wechatObj->valid();
-//        }else{
-//            echo $wechatObj->responseMsg();
-//            exit;
-//        }
-
+    }
+    public function actionTest()
+    {
+        var_dump(Yii::$app->request);
+        echo "api test11";
+        exit;
     }
 }

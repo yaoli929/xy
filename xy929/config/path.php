@@ -10,7 +10,7 @@ return [
     'admin'=>'admin/index',
     'admin/login'=>'admin/index/login',
     'wechat'=>'wechat/index',
+    'api'=>'api/index',
+    'api/test'=>'api/index/test',
 
-//    '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-//    'admin/<controller:\w+>/<action:\w+>'=>'<controller>/<action>'
 ];

@@ -22,11 +22,15 @@ $config = [
         'wechat' => [
             'class' => 'app\modules\wechat\wechat',
         ],
+        'api' => [
+            'class' => 'app\modules\api\api',
+        ],
     ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'Ek7SUg7qeQ80Z3p-6nNYJAPSLxugTy88',
+            'enableCsrfValidation' => false,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -45,7 +49,7 @@ $config = [
             'identityCookie'    => ['name'=>'_admin','httpOnly' => true],
         ),
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'index/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
