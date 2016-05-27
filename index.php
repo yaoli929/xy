@@ -7,7 +7,6 @@
  * 入口文件
  */
 require('xy929/web/index.php');
-
 if (in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
     //本地环境
     defined('YII_DEBUG') or define('YII_DEBUG', true);

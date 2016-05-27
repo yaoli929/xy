@@ -8,6 +8,10 @@ class indexConfig{
 
         $config = require(__DIR__ . '/../config/web.php');
 
+        Yii::setAlias('@webcss', 'xy929/web/css');
+        Yii::setAlias('@webjs', 'xy929/web/js');
+        Yii::setAlias('@webimg', 'xy929/web/img');
+
         (new yii\web\Application($config))->run();
     }
 }
