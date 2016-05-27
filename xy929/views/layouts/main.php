@@ -21,7 +21,7 @@ AppAsset::register($this);
     <title>乖乖宝宝-<?= $this->title ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body screen_capture_injected="true">
 <?php $this->beginBody() ?>
 
 <div class="wrap">
@@ -89,6 +89,21 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+
+<?=Html::jsFile('@webjs/index2/jquery-1.4.min.js')?>
+<?=Html::jsFile('@webjs/index2/jquery.easing.1.3.js')?>
+<?=Html::jsFile('@webjs/index2/jquery.galleryview-1.1.js')?>
+<?=Html::jsFile('@webjs/index2/jquery.timers-1.1.2.js')?>
+<script type="text/javascript">
+    $('#photos').galleryView({
+        panel_width: 800,
+        panel_height: 300,
+        frame_width: 100,
+        frame_height: 100
+    });
+
+</script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

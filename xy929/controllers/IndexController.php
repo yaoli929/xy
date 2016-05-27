@@ -56,6 +56,10 @@ class IndexController extends Controller
     {
         return $this->render('index');
     }
+    public function actionIndex2()
+    {
+        return $this->render('index2');
+    }
 
     public function actionLogin()
     {
