@@ -13,16 +13,6 @@ $this->title = '首页';
 <?=Html::cssFile('@webcss/index2/index.css')?>
 
 
-<ul class="nav nav-pills">
-
-    <li  class="<?php if(Yii::$app->controller->action->id == "index"){echo "active";}?>">
-        <a href="/index/index">倒影图片轮播</a>
-    </li>
-    <li  class="<?php if(Yii::$app->controller->action->id == "index2"){echo "active";}?>">
-        <a href="/index/index2">幻灯片</a>
-    </li>
-</ul>
-
 <div id="container" style="overflow:hidden;">
     <div id="photos" class="galleryview">
         <div class="panel">

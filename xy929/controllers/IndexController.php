@@ -54,13 +54,16 @@ class IndexController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index3');
     }
     public function actionIndex2()
     {
         return $this->render('index2');
     }
-
+    public function actionIndex3()
+    {
+        return $this->render('index');
+    }
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {

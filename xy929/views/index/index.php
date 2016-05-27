@@ -11,12 +11,6 @@ $this->title = '首页';
 
 <?=Html::jsFile('@webjs/index/index.js')?>
 <?=Html::cssFile('@webcss/index/index.css')?>
-<ul class="nav nav-pills">
-    <li class="active">
-        <a href="/index/index">倒影图片轮播</a>
-    </li>
-    <li><a href="/index/index2">幻灯片</a></li>
-</ul>
 
 <div id="imageFlow">
 <!--    <div class="top">-->
