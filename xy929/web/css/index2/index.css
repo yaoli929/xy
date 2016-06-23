@@ -56,3 +56,7 @@
 *html .pointer {
     filter: chroma(color=pink);
 }
+#pointer{
+	  height: 104px !important;
+    width: 102px !important;
+}

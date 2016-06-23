@@ -36,8 +36,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => '首页SNOW', 'url' => ['/index/index']],
-            ['label' => '倒影图片轮播', 'url' => ['/index/index3']],
+            // ['label' => '首页SNOW', 'url' => ['/index/index']],
+            ['label' => '倒影图片轮播', 'url' => ['/index/index']],
             ['label' => '幻灯片', 'url' => ['/index/index2']],
 //            ['label' => '关于我们', 'url' => ['/index/about']],
 //            ['label' => '联系我们', 'url' => ['/index/contact']],
@@ -99,29 +99,6 @@ AppAsset::register($this);
 
 </script>
 
-<?=Html::jsFile('@webjs/index3/ThreeCanvas.js')?>
-<?=Html::jsFile('@webjs/index3/Snow.js')?>
-<?=Html::jsFile('@webjs/index3/snowFall.js')?>
-
-<script>
-    $.snowFall({
-        //创建粒子数量，密度
-        particleNo: 500,
-        //粒子下拉速度
-        particleSpeed:30,
-        //粒子在垂直（Y轴）方向运动范围
-        particleY_Range:1300,
-        //粒子在垂直（X轴）方向运动范围
-        particleX_Range:1000,
-        //是否绑定鼠标事件
-        bindMouse: false,
-        //相机离Z轴原点距离
-        zIndex:600,
-        //摄像机视野角度
-        angle:55,
-        wind_weight:0
-    });
-</script>
 
 <footer class="footer">
     <div class="container">
