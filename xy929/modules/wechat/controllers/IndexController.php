@@ -25,9 +25,12 @@ class IndexController extends Controller
     }
     public function actionIndex()
     {
+        // Ylx4kqov1r9WYXc7tNgtc3zj9HY-zN3Tay1gntixofZMaqAfWSElvrOcwGb7s-ZqHVal--04QMenvBfUo_ZbtRrG5GhUfX0RnTlQyZIcGRCsrNvnQ_l2ZOoZyo6derjLDZXfAIAMIG
+
         $wechatObj = new Wechat_Service();
-//        $wechatObj->valid();
-        $wechatObj->responseMsg();
+        $aa=$wechatObj->getAccessToken();
+        echo $aa;
+        // $wechatObj->responseMsg();
         exit;
 
 

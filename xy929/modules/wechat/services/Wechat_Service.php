@@ -15,9 +15,8 @@ class Wechat_Service{
     public function getAccessToken(){
         //获取access_token
         $token_model=new AccessTokenModel();
-        $access_token=$token_model->find()->one()->attributes;
-
-        if(empty($access_token['access_token']) || time()>($access_token['expire_time']+$access_token['create_time'])){
+        $access_token=$token_model->findOne(1)->toArray();
+        if(empty($access_token['access_token']) || time()>($access_token['expire_time']+$access_token['update_time'])){
             //添加或者更新access_token
             $return=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$this->appId."&secret=".$this->appSecret);
             $data=json_decode($return,1);
@@ -25,8 +24,10 @@ class Wechat_Service{
             $token_model->expire_time=$data['expires_in'];
             if(!empty($access_token['id'])){
                 $token_model->id=$access_token['id'];
+                $token_model->update();
+            }else{
+                $token_model->insert();
             }
-            $token_model->save();
             return $data['access_token'];
         }else{
             return $access_token['access_token'];
