@@ -5,10 +5,10 @@ namespace app\modules\admin\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\models\AdminModel;
+use app\modules\admin\models\AdminModel;
 
 /**
- * AdminSearchModel represents the model behind the search form about `app\module\models\AdminModel`.
+ * AdminSearchModel represents the model behind the search form about `app\modules\admin\models\AdminModel`.
  */
 class AdminSearchModel extends AdminModel
 {
@@ -18,8 +18,8 @@ class AdminSearchModel extends AdminModel
     public function rules()
     {
         return [
-            [['id', 'status', 'created_time', 'updated_time'], 'integer'],
-            [['username', 'password', 'email'], 'safe'],
+            [['id', 'status'], 'integer'],
+            [['username', 'password', 'email', 'create_time', 'update_time'], 'safe'],
         ];
     }
 
@@ -58,13 +58,13 @@ class AdminSearchModel extends AdminModel
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
-            'created_time' => $this->created_time,
-            'updated_time' => $this->updated_time,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'email', $this->email]);
+            ->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['like', 'create_time', $this->create_time])
+            ->andFilterWhere(['like', 'update_time', $this->update_time]);
 
         return $dataProvider;
     }
