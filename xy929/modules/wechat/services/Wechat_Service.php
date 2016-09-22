@@ -14,25 +14,26 @@ class Wechat_Service{
 
     public function getAccessToken(){
         //获取access_token
-        $token_model=new AccessTokenModel();
-        $access_token=$token_model->findOne(1)->toArray();
-        if(empty($access_token['access_token']) || time()>($access_token['expire_time']+$access_token['update_time'])){
+        $token_model=AccessTokenModel::findOne(1);
+        if(empty($token_model)){
+            $token_model=new AccessTokenModel();
+        }else{
+            $access_token=$token_model->toArray();
+        }
+        
+        if(empty($access_token['access_token']) || (time()>($access_token['expire_time']+$access_token['update_time']))){
             //添加或者更新access_token
             $return=file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$this->appId."&secret=".$this->appSecret);
             $data=json_decode($return,1);
             $token_model->access_token=$data['access_token'];
             $token_model->expire_time=$data['expires_in'];
-            if(!empty($access_token['id'])){
-                $token_model->id=$access_token['id'];
-                $token_model->update();
-            }else{
-                $token_model->insert();
-            }
+            $token_model->save();
             return $data['access_token'];
         }else{
             return $access_token['access_token'];
         }
     }
+    
     public function valid() {
 
         if($this->checkSignature()){
