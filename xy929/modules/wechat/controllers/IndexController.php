@@ -25,12 +25,11 @@ class IndexController extends Controller
     }
     public function actionIndex()
     {
-        // Ylx4kqov1r9WYXc7tNgtc3zj9HY-zN3Tay1gntixofZMaqAfWSElvrOcwGb7s-ZqHVal--04QMenvBfUo_ZbtRrG5GhUfX0RnTlQyZIcGRCsrNvnQ_l2ZOoZyo6derjLDZXfAIAMIG
 
         $wechatObj = new Wechat_Service();
-        $aa=$wechatObj->getAccessToken();
-        echo $aa;
-        // $wechatObj->responseMsg();
+        // $aa=$wechatObj->getAccessToken();
+        // echo $aa;
+        $wechatObj->responseMsg();
         exit;
 
 
@@ -41,5 +40,45 @@ class IndexController extends Controller
 //            exit;
 //        }
 
+    }
+
+    //获取用户列表
+    static function actionUser(){
+        $wechatObj = new Wechat_Service();
+        $token=$wechatObj->getAccessToken();
+        $data=file_get_contents('https://api.weixin.qq.com/cgi-bin/user/get?access_token='.$token);
+        return $data;
+        exit;
+        
+    }
+
+    //获取用户基本信息
+    static function actionUserinfo(){
+        $wechatObj = new Wechat_Service();
+        $token=$wechatObj->getAccessToken();
+        //获取用户列表
+        $user_list=file_get_contents('https://api.weixin.qq.com/cgi-bin/user/get?access_token='.$token);
+        $user_list=json_decode($user_list,1);
+        if(!empty($user_list['data']['openid'])){
+            foreach ($user_list['data']['openid'] as $key => $value) {
+                $post['user_list'][$key]['openid']=$value;
+                $post['user_list'][$key]['lang']='zh-CN';
+            } 
+            $url='https://api.weixin.qq.com/cgi-bin/user/info/batchget?access_token='.$token;
+            $return=$wechatObj->http_request($url,json_encode($post));
+            var_dump(json_decode($return,1));     
+        }else{
+            echo "没有用户数据";
+        }
+
+        exit;
+    }
+    //自定义菜单
+    public function actionMenu(){
+        $wechatObj = new Wechat_Service();
+        $token=$wechatObj->getAccessToken();
+        $data=file_get_contents('https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$token);
+        var_dump($data);
+        exit;
     }
 }
