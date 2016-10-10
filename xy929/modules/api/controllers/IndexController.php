@@ -12,7 +12,7 @@ use Yii;
 use yii\web\Controller;
 
 
-// 微信模块总控制器
+// api总控制器
 class IndexController extends Controller
 {
     public function actions()

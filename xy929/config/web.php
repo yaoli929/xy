@@ -5,8 +5,10 @@ $path= require(__DIR__ . '/path.php');
 //引入数据库
 if(YII_ENV_DEV){
     $db=require(__DIR__ . '/db.php');
+    $redis=require(__DIR__ . '/redis.php');
 }else{
     $db=require(__DIR__ . '/dbp.php');
+    $redis=require(__DIR__ . '/redisp.php');
 }
 
 $config = [
@@ -68,6 +70,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        'redis' => $redis,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

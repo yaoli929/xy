@@ -60,10 +60,12 @@ class IndexController extends Controller
     {
         return $this->render('index2');
     }
-    // public function actionIndex3()
-    // {
-    //     return $this->render('index');
-    // }
+    public function actionIndex3()
+    {
+        Yii::$app->redis->set('test','我是redis测试');  //设置redis缓存
+        echo Yii::$app->redis->get('test');   //读取redis缓存
+        exit;
+    }
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
